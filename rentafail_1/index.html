@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html data-ng-app="mMain">
+<head>
+    <!-- css references -->
+    <link href="app/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="app/css/style.css" rel="stylesheet" />
+    <link href="app/directives/header-anchor/header-anchor.css" rel="stylesheet" />
+    <link href="app/directives/header-login/header-login.css" rel="stylesheet" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>angular test</title>
+</head>
+<body>
+    <div d-header-anchor class="header-anchor"></div>
+    <div d-header-login class="header-login"></div>
+    
+    <div class="container_main">
+        <!--placeholder views-->
+        <data-ng-view></data-ng-view>
+    </div>
+    
+    <script src="app/js/angular.js"></script>
+    <script src="app/js/angular-route.js"></script>
+    <script src="app/js/script.js"></script>
+    <script src="app/directives/header-anchor/header-anchor.js"></script>
+    <script src="app/directives/header-login/header-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿.header-anchor{
+    position: relative;
+    outline: 1px solid green;
+}
+.header-anchor ul{
+    list-style-type: none;
+}
+.header-anchor li{
+    display: inline;
+}
+.header-anchor button{
+    width: 100px;
+    height: 50px;
+}
