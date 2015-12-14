@@ -1,9 +1,10 @@
 ﻿var mHeaderLogin = angular.module('mHeaderLogin', ['mMain']);
-mHeaderLogin.directive('dHeaderLogin', fHeaderLogin);
+mHeaderLogin.directive('dHeaderFuck', fHeaderLogin);
 function fHeaderLogin() {
+	console.log("login");
     return {
-        restrict: 'A',
-        templateUrl: 'app/directives/header-login/header-login.html'
+        restrict: 'E',
+        templateUrl: 'app/directives/header-Login/header-Login.html'
     }
 }
 mHeaderLogin.controller('cHeaderLogin', function ($scope, simpleFactory) {
