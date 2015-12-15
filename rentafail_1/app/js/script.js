@@ -3,7 +3,7 @@
 
 
 //module with route dependence
-var myApp = angular.module('mMain', ['ngRoute', 'mHeaderAnchor', 'mHeaderLogin']);
+var myApp = angular.module('mMain', ['ngRoute', 'ui.router','app.directives.mHeaderAnchor', 'app.directives.mHeaderLogin']);
 /*router declaration*/
 myApp.config(fRouteProvider);
 /*router function*/
@@ -24,8 +24,9 @@ myApp.controller('simpleController', fSimpleController);
 /*controller function*/
 function fSimpleController($scope, simpleFactory) { //simpleFactory returns factory object
     //console.log(simpleFactory);
-    var customers = simpleFactory.getCustomers(); //call  factory for customer objects
-    $scope.customers = customers;
+    var users = simpleFactory.getUsers(); //call  factory for customer objects
+    $scope.users = users;
+	console.log($scope.$id);
 }
 
 /*factory declaration*/
@@ -34,20 +35,20 @@ myApp.factory('simpleFactory', fSimpleFactory);
 function fSimpleFactory() {
     /*empty object declaration*/
     var factory = {};
-    var customers = [{
+    var users = [{
         name: "Dai Walton",
-        city: "Rocky View"
+        password: "Rocky View"
     }, {
         name: "Irma Mcgee",
-        city: "Columbia"
+        password: "Columbia"
     }, {
         name: "Cole Case",
-        city: "Montignoso"
+        password: "Montignoso"
     }
     ];
 
-    factory.getCustomers = function () {
-        return customers;
+    factory.getUsers = function () {
+        return users;
     };
     return factory;
 }

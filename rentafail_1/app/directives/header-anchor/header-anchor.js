@@ -1,9 +1,9 @@
-﻿var mHeaderAnchor = angular.module('mHeaderAnchor', ['mMain']);
+﻿var mHeaderAnchor = angular.module('app.directives.mHeaderAnchor', []);
 mHeaderAnchor.directive('dHeaderAnchor', fHeaderAnchor);
 function fHeaderAnchor() {
 	console.log("anchor");
     return {
-        restrict: 'E',
+        restrict: 'A',
         templateUrl: 'app/directives/header-anchor/header-anchor.html'
     }
 }

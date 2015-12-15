@@ -1,1 +1,5 @@
 https://github.com/sika/rentafail_1.git
+/C/Users/Karlssim/Documents/##other/Projects/www/rentafail_1
+
+state and directive:
+http://stackoverflow.com/questions/17215656/how-to-detect-current-state-within-directive
