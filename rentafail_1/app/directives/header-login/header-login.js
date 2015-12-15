@@ -11,8 +11,6 @@ function fHeaderLogin() {
 		controller: function($scope, $state, simpleFactory){
 			/* console.log(simpleFactory); */
 			$scope.users = simpleFactory.getUsers();
-			console.log($scope.$id);
-			
 			console.log($scope.users);
 		}
 	}

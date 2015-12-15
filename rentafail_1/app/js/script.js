@@ -23,10 +23,8 @@ function fRouteProvider($routeProvider) {
 myApp.controller('simpleController', fSimpleController);
 /*controller function*/
 function fSimpleController($scope, simpleFactory) { //simpleFactory returns factory object
-    //console.log(simpleFactory);
     var users = simpleFactory.getUsers(); //call  factory for customer objects
     $scope.users = users;
-	console.log($scope.$id);
 }
 
 /*factory declaration*/
