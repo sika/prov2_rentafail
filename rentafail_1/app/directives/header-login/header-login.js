@@ -4,18 +4,12 @@ function fHeaderLogin() {
 	console.log("login");
     return {
         restrict: 'A',
-		scope: {
-			users: '='
-		},
+        scope: {}, //isolate scope
         templateUrl: 'app/directives/header-Login/header-Login.html',
 		controller: function($scope, $state, simpleFactory){
 			/* console.log(simpleFactory); */
 			$scope.users = simpleFactory.getUsers();
-			console.log($scope.users);
+			//console.log($scope.users);
 		}
 	}
 }
-/* mHeaderLogin.controller('cHeaderLogin', function ($scope, simpleFactory) {
-    console.log(simpleFactory);
-    $scope.customers = simpleFactory.getCustomers();
-}); */
