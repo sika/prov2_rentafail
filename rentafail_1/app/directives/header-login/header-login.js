@@ -9,6 +9,9 @@ function fHeaderLogin() {
 		controller: function($scope, $state, simpleFactory){
 			/* console.log(simpleFactory); */
 			$scope.users = simpleFactory.getUsers();
+			var bLogin = false;
+			$scope.bLogin = bLogin
+			console.log($scope.bLogin);
 			//console.log($scope.users);
 		}
 	}

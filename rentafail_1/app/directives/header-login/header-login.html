@@ -1,7 +1,16 @@
 ﻿<div class="container_header-login">
-	<input type="text" placeholder="username/email"/>
-	<input type="text" placeholder="password"/>
-	<br/>
-	<button type="button" class="btn btn-primary">Login</button>	
-	<!--<li data-ng-repeat="user in users">{{user.name}} - {{user.password}}</li>-->
+	<div data-ng-if="true">
+		<input type="text" placeholder="username/email"/>
+		<input type="text" placeholder="password"/>
+		<br/>
+		<button type="button" class="btn btn-primary">Login</button>	
+		<li data-ng-repeat="user in users">{{user.name}} - {{user.password}}</li>
+	</div>
+	<div data-ng-if="false">
+		<input type="text" placeholder="username/email"/>
+		<input type="text" placeholder="password"/>
+		<br/>
+		<button type="button" class="btn btn-danger">INLOGGED</button>	
+		<!--<li data-ng-repeat="user in users">{{user.name}} - {{user.password}}</li>-->
+	</div>
 </div>
