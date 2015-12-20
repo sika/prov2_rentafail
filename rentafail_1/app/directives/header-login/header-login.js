@@ -8,13 +8,19 @@ function fHeaderLogin() {
         templateUrl: 'app/directives/header-Login/header-Login.html',
         controller: function ($scope, simpleFactory) {
             $scope.users = simpleFactory.getUsers();
-            $scope.login = { opLogin: false };
-            //$scope.scrollRight;
+            //$scope.login = { opLogin: false };
+            console.log($scope.$id);
         },
         link: function (scope, element, attrs) {
-            scope.scrollRight = function () {
-                scope.login.opLogin = true;
-            };
+            scope.login = { opLogin: false };
+            scope.userVal = {username: 'userTest'};
+            //scope.scrollRight = function () {
+            //    scope.login.opLogin = true;
+            //}
+            scope.submit = function () {
+                console.log(scope.userVal.username);
+                console.log("fSubmit");
+            }
         }
     }
 }

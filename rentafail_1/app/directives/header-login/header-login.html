@@ -1,15 +1,16 @@
 ﻿<div class="container_header-login">
 	<div data-ng-if="!login.opLogin">
-        {{login.opLogin}}
-		<input type="text" placeholder="username/email"/>
-		<input type="text" placeholder="password"/>
-		<br/>
-		<button type="button" class="btn btn-primary" ng-click="scrollRight()">Login</button>
+        <form ng-submit="submit()">
+            <input type="text" ng-model="scope.userVal.username" placeholder="username/email" />
+            <input type="text" ng-model="scope.password" placeholder="password" />
+            <br />
+            <input type="submit" class="btn btn-primary" value="Login">
+        </form>
         <a href="#">Register</a>            
         <a href="#">Forgot password</a>	
 	</div>
     <div data-ng-if="login.opLogin">
-        Logged in
-        {{login.opLogin}}
+        <!--{{login.opLogin}}-->
+        Logged in as
 	</div>
 </div>
