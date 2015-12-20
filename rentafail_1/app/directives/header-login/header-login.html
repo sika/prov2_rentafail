@@ -1,16 +1,15 @@
 ﻿<div class="container_header-login">
-	<div data-ng-if="true">
+	<div data-ng-if="!login.opLogin">
+        {{login.opLogin}}
 		<input type="text" placeholder="username/email"/>
 		<input type="text" placeholder="password"/>
 		<br/>
-		<button type="button" class="btn btn-primary">Login</button>	
-		<li data-ng-repeat="user in users">{{user.name}} - {{user.password}}</li>
+		<button type="button" class="btn btn-primary" ng-click="scrollRight()">Login</button>
+        <a href="#">Register</a>            
+        <a href="#">Forgot password</a>	
 	</div>
-	<div data-ng-if="false">
-		<input type="text" placeholder="username/email"/>
-		<input type="text" placeholder="password"/>
-		<br/>
-		<button type="button" class="btn btn-danger">INLOGGED</button>	
-		<!--<li data-ng-repeat="user in users">{{user.name}} - {{user.password}}</li>-->
+    <div data-ng-if="login.opLogin">
+        Logged in
+        {{login.opLogin}}
 	</div>
 </div>

@@ -1,21 +1,21 @@
 ﻿var mHeaderLogin = angular.module('app.directives.mHeaderLogin', ['mMain'])// mMain-dependent due to factory call
 .directive('dHeaderLogin', fHeaderLogin);
 function fHeaderLogin() {
-    console.log("login");
     return {
         restrict: 'A',
+        //replace: true,
         scope: {}, //isolate scope
         templateUrl: 'app/directives/header-Login/header-Login.html',
         controller: function ($scope, simpleFactory) {
-            /* console.log(simpleFactory); */
             $scope.users = simpleFactory.getUsers();
-            var bLogin = false;
-            $scope.bLogin = bLogin
-            console.log($scope.bLogin);
-            //console.log($scope.users);
+            $scope.login = { opLogin: false };
+            //$scope.scrollRight;
         },
         link: function (scope, element, attrs) {
-
+            scope.scrollRight = function () {
+                scope.login.opLogin = true;
+            };
         }
     }
 }
+

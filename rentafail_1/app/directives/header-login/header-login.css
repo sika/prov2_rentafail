@@ -4,15 +4,21 @@
     right: 2%;
     width: 200px;
     height: 200px;
-    /* outline: 1px solid red; */
+     outline: 1px solid red;
+     text-align: center; 
+     z-index: 2;
 	/* box-sizing: border-box; */
+}
+.header-login a{
+    font-size: 10px;
 }
 .container_header-login{
 	position: relative;
 	width: 100%;
+    outline: 1px solid green;
+
 }
 .container_header-login input, button {
-	margin: 4px;
 	width: 100%;
 	padding: 0;
 }

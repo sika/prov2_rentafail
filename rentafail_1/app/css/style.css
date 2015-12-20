@@ -41,6 +41,7 @@ table {
 	position: relative;
 	/* outline: 1px solid black; */
     margin: 0 1%;
+    z-index: 1;
 }
 /*header{
     position: relative;

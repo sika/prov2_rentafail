@@ -71,6 +71,8 @@
     <Content Include="app\directives\header-login\header-login.css" />
     <Content Include="app\directives\header-login\header-login.html" />
     <Content Include="app\directives\header-login\header-login.js" />
+    <Content Include="app\js\angular-ui-router.js" />
+    <Content Include="app\js\jquery-1.11.3.js" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
