@@ -35,8 +35,8 @@ function fSimpleFactory() {
     /*empty object declaration*/
     var factory = {};
     var users = [{
-        name: "bbb",
-        password: "aaa"
+        "name": "bbb",
+        "password": "aaa"
     }, {
         name: "ccc",
         password: "ddd"
