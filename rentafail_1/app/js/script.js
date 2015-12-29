@@ -3,7 +3,8 @@
 
 
 //module with route dependence
-var myApp = angular.module('mMain', ['ngRoute', 'ui.router','app.directives.mHeaderAnchor', 'app.directives.mHeaderLogin']);
+var myApp = angular.module('mMain', ['ngRoute', 'ui.router','app.directives.mHeaderAnchor', 
+'app.directives.mHeaderLogin', 'app.directives.mHeaderChooseType', 'app.directives.mSearchBar']);
 /*router declaration*/
 myApp.config(fRouteProvider);
 /*router function*/

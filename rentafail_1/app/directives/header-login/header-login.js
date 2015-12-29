@@ -8,20 +8,22 @@ function fHeaderLogin() {
         templateUrl: 'app/directives/header-Login/header-Login.html',
         controller: function ($scope, simpleFactory) {
             $scope.users = simpleFactory.getUsers();
-            //$scope.login = { opLogin: false };
-            console.log($scope.$id);
+			$scope.username = "test";
         },
         link: function (scope, element, attrs) {
             scope.login = { opLogin: false };
-            scope.userVal = {username: 'userTest'};
-            //scope.scrollRight = function () {
-            //    scope.login.opLogin = true;
-            //}
-            scope.submit = function () {
-                console.log(scope.userVal.username);
+			scope.submit = function () {
+                console.log(scope.username);
                 console.log("fSubmit");
             }
         }
     }
 }
+/* 			
+also require fHeaderLogin($timeout) 
+$timeout(function () {
+				element.find("#test").bind('click', function() {
+				alert("clicked");
+				});
+			}); */
 

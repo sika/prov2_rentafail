@@ -1,10 +1,10 @@
 ﻿<div class="container_header-login">
 	<div data-ng-if="!login.opLogin">
         <form ng-submit="submit()">
-            <input type="text" ng-model="scope.userVal.username" placeholder="username/email" />
+            <input type="text" ng-model="username" placeholder="username/email" />
             <input type="text" ng-model="scope.password" placeholder="password" />
             <br />
-            <input type="submit" class="btn btn-primary" value="Login">
+            <input type="submit" class="btn btn-primary" value="Login"/>
         </form>
         <a href="#">Register</a>            
         <a href="#">Forgot password</a>	
