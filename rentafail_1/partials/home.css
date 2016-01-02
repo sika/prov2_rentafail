@@ -1,0 +1,13 @@
+﻿.videoList{
+    display: inline-block;
+    outline: 1px solid black;
+    text-align: center;
+    margin: 30px;
+}
+.videoList iframe{
+    display: block; /*for centering iFrame with div text-align*/
+    width: 300px;
+    height: 200px;
+    /*margin: 0 auto;*/
+        /*outline: 1px solid green;*/
+}
