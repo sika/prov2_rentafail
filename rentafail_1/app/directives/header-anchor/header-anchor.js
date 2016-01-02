@@ -7,7 +7,7 @@ function fHeaderAnchor() {
         templateUrl: 'app/directives/header-anchor/header-anchor.html'
     }
 }
-mHeaderAnchor.controller('cHeaderAnchor', function ($scope, simpleFactory) {
-    console.log(simpleFactory);
-    $scope.customers = simpleFactory.getCustomers();
+mHeaderAnchor.controller('cHeaderAnchor', function ($scope, mainFactory) {
+    console.log(mainFactory);
+    $scope.customers = mainFactory.getCustomers();
 });

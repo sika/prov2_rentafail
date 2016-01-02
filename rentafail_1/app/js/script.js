@@ -10,10 +10,10 @@ myApp.config(fRouteProvider);
 /*router function*/
 function fRouteProvider($routeProvider) {
     $routeProvider.when('/', {
-        controller: 'simpleController',
+        controller: 'mainController',
         templateUrl: 'partials/home.html'
     }).when('/beafail', {
-        controller: 'simpleController',
+        controller: 'mainController',
         templateUrl: 'partials/be_a_fail.html'
     }).otherwise({
         redirectTo: '/'
@@ -21,57 +21,95 @@ function fRouteProvider($routeProvider) {
 }
 
 /*controller declaration*/
-myApp.controller('simpleController', fSimpleController);
+myApp.controller('mainController', fMainController);
 /*controller function*/
-function fSimpleController($scope, simpleFactory) { //simpleFactory returns factory object
-    var users = simpleFactory.getUsers(); //call  factory for customer objects
-    $scope.users = users;
+function fMainController($scope, mainFactory, $sce) { //mainFactory returns factory object
+    $scope.users = mainFactory.getUsers(); //call  factory for customer objects;
+    $scope.logins = mainFactory.getLogins(); //call  factory for customer objects;
+    $scope.videos = mainFactory.getVideos(); //call  factory for customer objects;
+    $scope.rents = mainFactory.getRents(); //call  factory for customer objects;
+    $scope.trustSrc = function (src) {
+        return $sce.trustAsResourceUrl(src);
+    }
+    //$scope.aVideos = mainFactory.getAVideos();
 }
 
 /*factory declaration*/
-myApp.factory('simpleFactory', fSimpleFactory);
+myApp.factory('mainFactory', fMainFactory);
 /*Factory function*/
-function fSimpleFactory() {
+function fMainFactory() {
     /*empty object declaration*/
     var factory = {};
     var users = [{
-        "name": "bbb",
-        "password": "aaa"
+        id_user: 1,
+        name: "bob jew",
+        email: "bobjew@hotmail.com",
+        ref_id_password: 1,
+        ref_id_rent: null,
+        ref_id_video: null
     }, {
-        name: "ccc",
-        password: "ddd"
+        id_user: 2,
+        name: "aaa",
+        email: "aaa@hotmail.com",
+        ref_id_password: 3,
+        ref_id_rent: null,
+        ref_id_video: null
     }, {
-        name: "Cole Case",
-        password: "Montignoso"
-    }
-    ];
+        id_user: 3,
+        name: "bbb",
+        email: "bbb@hotmail.com",
+        ref_id_password: 5,
+        ref_id_rent: null,
+        ref_id_video: null  
+    }];
+
+    var logins = [{
+        ref_id_user: 1,
+        password: "bobjew"
+    }, {
+        ref_id_user: 2,
+        password: "aaa"
+    }];
+
+    var videos = [{
+        id_video: 1,
+        name: "2005 Jeep Rubicon Flex Fail",
+        url: "http://www.youtube.com/embed/rqWgkXeBD4c?autoplay=0",
+        ref_id_user: 1
+    },{
+        id_video: 2,
+        name: "Bro night fail",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }];
+
+    var rents = [{
+        id_rent: 1,
+        datetime: "2016-01-08 18:30",
+        ref_id_user: 1
+    }, {
+        id_rent: 2,
+        datetime: "2016-01-05 15:00",
+        ref_id_user: 2
+    }];
+
+    //var aVideos = new Array(10);
+    //factory.getAVideos = function (){
+    //    return aVideos;
+    //};
 
     factory.getUsers = function () {
         return users;
     };
+    factory.getVideos = function () {
+        return videos;
+    };
+    factory.getLogins = function () {
+        return logins;
+    };
+    factory.getRents = function () {
+        return rents;
+    };
     return factory;
 }
 
-
-
-/*
-var customers = [{
-name : "Dai Walton",
-city : "Rocky View"
-}, {
-name : "Irma Mcgee",
-city : "Columbia"
-}, {
-name : "Cole Case",
-city : "Montignoso"
-}
-];
- */
-//myApp.factory(&#39;simpleFactory&#39;, simpleFactoryF);
-//function simpleFactoryF (){
-//var }
-
-//factory
-
-//controller
-//routeProvider

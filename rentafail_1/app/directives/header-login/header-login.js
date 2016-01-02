@@ -6,8 +6,8 @@ function fHeaderLogin() {
         //replace: true,
         scope: {}, //isolate scope
         templateUrl: 'app/directives/header-Login/header-Login.html',
-        controller: function ($scope, simpleFactory) {
-            $scope.users = simpleFactory.getUsers();
+        controller: function ($scope, mainFactory) {
+            $scope.users = mainFactory.getUsers();
 			$scope.username = "test";
         },
         link: function (scope, element, attrs) {

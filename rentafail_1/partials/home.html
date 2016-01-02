@@ -1,10 +1,15 @@
 <h1>Rent a fail</h1>
+<!--<div ng-repeat="aVideo in aVideos track by $index">-->
+<div ng-repeat="video in videos">
+    <iframe width="420" height="315"
+            ng-src="{{trustSrc(video.url)}}"></iframe>
+    <br />
+</div>
 
-<iframe width="420" height="315"
+<!--<iframe width="420" height="315"
 src="http://www.youtube.com/embed/rqWgkXeBD4c?autoplay=0">
 </iframe>
- <!--<li data-ng-repeat="user in users">{{user.name}} - {{user.password}}</li>--> 
-<br/>
-<br/>
+ <li data-ng-repeat="rent in rents">{{rent.id_rent}}</li>-->
+
 
 <a href="#/beafail">be a fail</a>
