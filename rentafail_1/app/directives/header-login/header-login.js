@@ -19,11 +19,5 @@ function fHeaderLogin() {
         }
     }
 }
-/* 			
-also require fHeaderLogin($timeout) 
-$timeout(function () {
-				element.find("#test").bind('click', function() {
-				alert("clicked");
-				});
-			}); */
+
 

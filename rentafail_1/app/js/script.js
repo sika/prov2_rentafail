@@ -73,8 +73,8 @@ function fMainFactory() {
 
     var videos = [{
         id_video: 1,
-        name: "2005 Jeep Rubicon Flex Fail",
-        url: "http://www.youtube.com/embed/rqWgkXeBD4c?autoplay=0",
+        name: "Cheerleading Fail",
+        url: "http://www.youtube.com/embed/l-kxBjNML5c?autoplay=0",
         ref_id_user: 1
     },{
         id_video: 2,

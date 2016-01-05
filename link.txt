@@ -3,3 +3,5 @@ https://github.com/sika/rentafail_1.git
 
 state and directive:
 http://stackoverflow.com/questions/17215656/how-to-detect-current-state-within-directive
+
+https://coderwall.com/p/14rwpg/angular-directive-accessing-the-controller
