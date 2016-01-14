@@ -4,18 +4,25 @@ function fHeaderLogin() {
     return {
         restrict: 'A',
         //replace: true,
-        scope: {}, //isolate scope
+        //scope: {}, //isolate scope
         templateUrl: 'app/directives/header-Login/header-Login.html',
-        controller: function ($scope, mainFactory) {
+/*         controller: function ($scope, mainFactory) {
             $scope.users = mainFactory.getUsers();
-			$scope.username = "test";
-        },
-        link: function (scope, element, attrs) {
+			//$scope.username = "test";
+			console.log($scope.$id);
+        }, */
+        link: function (scope, element, attrs, ctrl) {
+			
             scope.login = { opLogin: false };
+			scope.username = "test";
+			console.log(scope);
 			scope.submit = function () {
                 console.log(scope.username);
                 console.log("fSubmit");
             }
+			scope.btn = function (){
+				alert(scope.username.name);
+			}
         }
     }
 }

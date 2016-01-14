@@ -8,6 +8,9 @@ angular.module('app.directives.mSearchBar', [])
 				//console.log(ctrl);
 				//console.log(scope.users[0]);
 				scope.search = "";
+				scope.fn = function(){
+					alert(scope.search.name);
+				}
 			}
      
 		}
