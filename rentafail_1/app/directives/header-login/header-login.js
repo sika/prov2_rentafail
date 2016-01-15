@@ -6,12 +6,12 @@ function fHeaderLogin() {
         templateUrl: 'app/directives/header-Login/header-Login.html',
         controller: function($scope){
             $scope.loggedin = false;
-            $scope.username = { name: "aa" };
-            $scope.password = { pass: "bb" };
+            $scope.username = { name: "" };
+            $scope.password = { pass: "" };
         },
         link: function (scope, element, attrs) {
-            scope.btn = function () {
-                console.log(scope.username.name);
+            scope.btn = function () { //submit() not working, why?
+                //console.log(scope.username.name);
                 alert(scope.username.name);
             }
         }
