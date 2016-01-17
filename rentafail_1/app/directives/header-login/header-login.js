@@ -6,6 +6,8 @@ function fHeaderLogin() {
         templateUrl: 'app/directives/header-Login/header-Login.html',
         controller: function ($scope, mainFactory) {
             $scope.loggedin = false;
+            $scope.iUser = 999;
+            console.log($scope.iUser);
             $scope.username = { name: "" };
             $scope.password = { pass: "" };
             $scope.users = mainFactory.getUsers();
@@ -19,14 +21,17 @@ function fHeaderLogin() {
                     {
                         for (var j = 0, len = scope.logins.length; j < len; j++) {
                             if (scope.logins[j].ref_id_user === scope.users[i].id_user) {//check password
-                                if (scope.logins[j].password === scope.password.pass) {
+                                if (scope.logins[j].password === scope.password.pass) { //if passed, user is logged in
+                                    scope.iUser = i;
+                                    console.log(scope.iUser);
                                     scope.loggedin = true;
+                                    return;
                                 }
                             }
                         }
-                        //alert(scope.users[i].id_user);
                     }
                 }
+                alert("username or password incorect"); //case no match
                 return;
             }
         }
