@@ -4,18 +4,36 @@ function fHeaderLogin() {
     return {
         restrict: 'A',
         templateUrl: 'app/directives/header-Login/header-Login.html',
-        controller: function($scope){
+        controller: function ($scope, mainFactory) {
             $scope.loggedin = false;
+            $scope.iUser = 999;
+            console.log($scope.iUser);
             $scope.username = { name: "" };
             $scope.password = { pass: "" };
+            $scope.users = mainFactory.getUsers();
+            $scope.logins = mainFactory.getLogins();
+            console.log($scope.users);
         },
         link: function (scope, element, attrs) {
-            scope.btn = function () { //submit() not working, why?
-                //console.log(scope.username.name);
-                alert(scope.username.name);
+            scope.confirm = function () {
+                for (var i = 0, len = scope.users.length; i < len; i++) {
+                    if (scope.users[i].name === scope.username.name)//true if input username match existing user name
+                    {
+                        for (var j = 0, len = scope.logins.length; j < len; j++) {
+                            if (scope.logins[j].ref_id_user === scope.users[i].id_user) {//check password
+                                if (scope.logins[j].password === scope.password.pass) { //if passed, user is logged in
+                                    scope.iUser = i;
+                                    console.log(scope.iUser);
+                                    scope.loggedin = true;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }//case no match was found
+                alert("username or password incorect"); //case no match
+                return;
             }
         }
     }
 }
-
-

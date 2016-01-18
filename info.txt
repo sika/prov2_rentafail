@@ -5,3 +5,6 @@ state and directive:
 http://stackoverflow.com/questions/17215656/how-to-detect-current-state-within-directive
 
 https://coderwall.com/p/14rwpg/angular-directive-accessing-the-controller
+
+Questions:
+- header-login: Why does it not work with function named "submit"
