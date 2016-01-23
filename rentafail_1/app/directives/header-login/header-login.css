@@ -1,7 +1,7 @@
 ﻿.header-login{
     position:absolute;
     top: 1%;
-    right: 2%;
+    right: 1%;
     width: 200px;
     height: 200px;
 	text-align: center; 
@@ -14,8 +14,28 @@
 .container_header-login{
 	position: relative;
 	width: 100%;
+    //outline: 1px solid black;
 }
 .container_header-login input, button {
 	width: 100%;
 	padding: 0;
 }
+.errorMessage{
+    color: red;
+    font-size: 12px;
+}
+.loggedInMessage *{
+    font-size: 14px;
+    display: inline;
+}
+.loggedInMessage a{
+    font-size: 14px;
+    text-decoration: underline;
+    display: inline;
+}
+
+/*.loggedInMessage p{
+    color: blue;
+    font-size: 14px;
+    display: inline;
+}*/

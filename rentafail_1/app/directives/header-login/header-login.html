@@ -1,10 +1,11 @@
 ﻿<div class="container_header-login">
-    <div data-ng-if="!loggedin">
+    <div data-ng-if="!login[0].loggedin">
         <form ng-submit="confirm()">
             <input type="text" ng-model="username.name" placeholder="username/email" />
             <input type="text" ng-model="password.pass" placeholder="password" />
             <br />
             <input type="submit" class="btn btn-primary" value="Login" />
+            <div ng-show="wrongUserOrPass" class="errorMessage">Incorrect username or password</div>
         </form>
 
         <!--<input type="text" ng-model="username.name"></input>
@@ -12,8 +13,9 @@
         <a href="#">Register</a>
         <a href="#">Forgot password</a>
     </div>
-    <div data-ng-if="loggedin">
-        Logged in as {{users[iUser].name}}
+    <div data-ng-if="login[0].loggedin" class="loggedInMessage">
+        <p>Logged in as  </p><a href="#">{{login[0].username}}</a>
+        <!--{{users[iUser].name}}-->
     </div>
 </div>
 

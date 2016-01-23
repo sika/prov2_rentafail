@@ -31,6 +31,7 @@ function fMainController($scope, mainFactory, $sce) { //mainFactory returns fact
 	$scope.trustSrc = function (src) {
 		return $sce.trustAsResourceUrl(src);
 	}
+	$scope.login = mainFactory.getLogin();
 	//$scope.aVideos = mainFactory.getAVideos();
 }
 
@@ -147,10 +148,11 @@ function fMainFactory() {
 		}
 	];
 
-	//var aVideos = new Array(10);
-	//factory.getAVideos = function (){
-	//    return aVideos;
-	//};
+	var login = [{
+	    loggedin: false,
+	    username: "",
+	    userId: 999
+	}];
 
 	factory.getUsers = function () {
 		return users;
@@ -164,5 +166,9 @@ function fMainFactory() {
 	factory.getRents = function () {
 		return rents;
 	};
+	factory.getLogin = function () {
+	    return login;
+	}
+
 	return factory;
 }
