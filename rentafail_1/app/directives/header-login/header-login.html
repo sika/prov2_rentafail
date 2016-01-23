@@ -2,7 +2,7 @@
     <div data-ng-if="!login[0].loggedin">
         <form ng-submit="confirm()">
             <input type="text" ng-model="username.name" placeholder="username/email" />
-            <input type="text" ng-model="password.pass" placeholder="password" />
+            <input type="password" ng-model="password.pass" placeholder="password" />
             <br />
             <input type="submit" class="btn btn-primary" value="Login" />
             <div ng-show="wrongUserOrPass" class="errorMessage">Incorrect username or password</div>
@@ -10,7 +10,7 @@
 
         <!--<input type="text" ng-model="username.name"></input>
         <input type="button" ng-click="btn()"></input>-->
-        <a href="#">Register</a>
+        <a href="#/register">Register</a>
         <a href="#">Forgot password</a>
     </div>
     <div data-ng-if="login[0].loggedin" class="loggedInMessage">

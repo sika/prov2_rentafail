@@ -1,0 +1,17 @@
+﻿.container_register{
+    text-align: center;
+    /*outline: 1px solid black;*/
+    
+}
+.form_register{
+    /*outline: 1px solid green;*/
+    margin: 0 auto;
+    width: 15%;
+}.form_register input{
+	width: 100%;
+	padding: 10px 0;
+}/*.form_register button {
+	width: 100%;
+	padding: 0;
+}*/
+

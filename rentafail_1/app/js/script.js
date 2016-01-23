@@ -15,6 +15,9 @@ function fRouteProvider($routeProvider) {
 	}).when('/beafail', {
 		controller : 'mainController',
 		templateUrl : 'partials/be_a_fail.html'
+	}).when('/register', {
+	    controller: 'regController',
+	    templateUrl: 'partials/register.html'
 	}).otherwise({
 		redirectTo : '/'
 	});
@@ -24,15 +27,34 @@ function fRouteProvider($routeProvider) {
 myApp.controller('mainController', fMainController);
 /*controller function*/
 function fMainController($scope, mainFactory, $sce) { //mainFactory returns factory object
-	$scope.users = mainFactory.getUsers(); //call  factory for customer objects;
-	$scope.logins = mainFactory.getLogins(); //call  factory for customer objects;
-	$scope.videos = mainFactory.getVideos(); //call  factory for customer objects;
-	$scope.rents = mainFactory.getRents(); //call  factory for customer objects;
+    $scope.users = mainFactory.getUsers(); //call  factory for customer objects;
+    $scope.logins = mainFactory.getLogins(); //call  factory for customer objects;
+    $scope.videos = mainFactory.getVideos(); //call  factory for customer objects;
+    $scope.rents = mainFactory.getRents(); //call  factory for customer objects;	
 	$scope.trustSrc = function (src) {
 		return $sce.trustAsResourceUrl(src);
 	}
 	$scope.login = mainFactory.getLogin();
-	//$scope.aVideos = mainFactory.getAVideos();
+    //$scope.aVideos = mainFactory.getAVideos();
+	//reg();
+	//function reg() {
+
+    //}
+	
+
+}
+myApp.controller('regController', fRegController);
+function fRegController($scope, mainFactory) {
+    $scope.regInfo = {
+        username: "",
+        password: "",
+        password_confirm: "",
+        email: ""
+    };
+    $scope.register = function () {
+        if ($("#form_register").validate())
+        alert("register function");
+    }
 }
 
 /*factory declaration*/
