@@ -11,11 +11,9 @@
         <!--<input type="text" ng-model="username.name"></input>
         <input type="button" ng-click="btn()"></input>-->
         <a href="#/register">Register</a>
-        <a href="#">Forgot password</a>
     </div>
     <div data-ng-if="login[0].loggedin" class="loggedInMessage">
-        <p>Logged in as  </p><a href="#">{{login[0].username}}</a>
-        <!--{{users[iUser].name}}-->
+        <p>Logged in as  </p><a href="#/user_info">{{login[0].username}}</a>
     </div>
 </div>
 

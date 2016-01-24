@@ -26,10 +26,11 @@ function fHeaderLogin() {
                                 if (scope.logins[j].password === scope.password.pass) { //if passed, user is logged in
                                     //scope.iUser = i;
                                     scope.login[0].username = scope.users[i].name;
-                                    scope.login[0].userId = scope.users[i].userId;
-                                    console.log(scope.iUser);
+                                    scope.login[0].ref_id_user = scope.users[i].id_user;
                                     scope.login[0].loggedin = true;
-                                    //scope.loggedin = true;
+                                    console.log(scope.login[0].loggedin);
+                                    console.log(scope.login[0].username);
+                                    console.log(scope.login[0].ref_id_user);
                                     return;
                                 }
                             }

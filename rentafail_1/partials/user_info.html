@@ -1,0 +1,15 @@
+﻿<h1>User profile</h1><br />
+<!--
+    if logged in display
+
+    -->
+<div data-ng-if="login[0].loggedin">
+    <ul>
+        <li ng-repeat="user in users">
+            {{user.name}}
+        </li>
+    </ul>
+</div>
+<div data-ng-if="!login[0].loggedin">
+    <p>Please login or register</p>
+</div>

@@ -1,4 +1,11 @@
-﻿.videoList{
+﻿.container-search-bar{
+	position:relative;
+	text-align: center;
+	margin: 50px 0;
+	font-size: 0;
+    /* outline: 1px solid black; */
+}
+.videoList{
     display: inline-block;
     outline: 1px solid black;
     text-align: center;

@@ -104,11 +104,12 @@
     <Content Include="app\js\script.js" />
     <Content Include="partials\be_a_fail.html" />
     <Content Include="app\directives\header-anchor\header-anchor.html" />
-    <Content Include="partials\home.css" />
+    <Content Include="partials\partials_styling\home.css" />
     <Content Include="partials\home.html" />
-    <Content Include="partials\register.css" />
+    <Content Include="partials\partials_styling\register.css" />
     <Content Include="partials\register.html" />
     <Content Include="partials\reg_success.html" />
+    <Content Include="partials\user_info.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

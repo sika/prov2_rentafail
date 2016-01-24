@@ -21,6 +21,9 @@ function fRouteProvider($routeProvider) {
 	}).when('/reg_success', {
 	    //controller: 'regController',
 	    templateUrl: 'partials/reg_success.html'
+	}).when('/user_info', {
+	    controller: 'mainController',
+	    templateUrl: 'partials/user_info.html'
 	}).otherwise({
 		redirectTo : '/'
 	});
@@ -30,6 +33,7 @@ function fRouteProvider($routeProvider) {
 myApp.controller('mainController', fMainController);
 /*controller function*/
 function fMainController($scope, mainFactory, $sce) { //mainFactory returns factory object
+    $scope.search = "";
     $scope.users = mainFactory.getUsers(); //call  factory for customer objects;
     $scope.logins = mainFactory.getLogins(); //call  factory for customer objects;
     $scope.videos = mainFactory.getVideos(); //call  factory for customer objects;
@@ -212,7 +216,7 @@ function fMainFactory() {
 	var login = [{
 	    loggedin: false,
 	    username: "",
-	    userId: 999
+	    ref_id_user: 999
 	}];
 
 	factory.getUsers = function () {
