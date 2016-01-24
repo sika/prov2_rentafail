@@ -44,10 +44,28 @@ function fMainController($scope, mainFactory, $sce) { //mainFactory returns fact
 	$scope.login = mainFactory.getLogin();
     //$scope.aVideos = mainFactory.getAVideos();
 	//reg();
-	//function reg() {
-
+    //function reg() {
+	$scope.profileInfo = {
+	    username: "",
+	    email: "",
+	    password: ""
+	};
+	getProfileInfo();
     //}
-	
+	//$scope.loginData = function () {
+	//    if ($scope.login[0].loggedin) {
+	//        return true;
+	//    }
+	//    else if (!$scope.login[0].loggedin) {
+	//        return false;
+	//    }
+	//}
+	function getProfileInfo() {
+	    if ($scope.login[0].loggedin) {
+
+	    } else
+	        return;
+	}
 
 }
 myApp.controller('regController', fRegController);
