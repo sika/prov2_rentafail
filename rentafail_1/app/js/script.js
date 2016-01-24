@@ -18,6 +18,9 @@ function fRouteProvider($routeProvider) {
 	}).when('/register', {
 	    controller: 'regController',
 	    templateUrl: 'partials/register.html'
+	}).when('/reg_success', {
+	    //controller: 'regController',
+	    templateUrl: 'partials/reg_success.html'
 	}).otherwise({
 		redirectTo : '/'
 	});
@@ -44,17 +47,53 @@ function fMainController($scope, mainFactory, $sce) { //mainFactory returns fact
 
 }
 myApp.controller('regController', fRegController);
-function fRegController($scope, mainFactory) {
+function fRegController($scope, $location, mainFactory) {
     $scope.regInfo = {
-        username: "",
-        password: "",
-        password_confirm: "",
+        id_user: "",
+        name: "",
         email: ""
     };
+    $scope.regInfoLogin = {
+        ref_id_user: "",
+        password: ""
+    };
+    $scope.usernameExist = false;
+    $scope.emailExist = false;
+
     $scope.register = function () {
-        if ($("#form_register").validate())
-        alert("register function");
+        //email and username exist?
+        if (checkIfUsernameOrEmailExist($scope.regInfo)) {
+            return; //exist function and registration
+        };
+        var user_id = $scope.users[$scope.users.length - 1].id_user + 1; //get value of id_user in last array item and increment by 1
+        $scope.regInfo.id_user = user_id;
+        $scope.users.push($scope.regInfo);
+        //set logins object
+        $scope.regInfoLogin.ref_id_user = user_id;
+        $scope.logins.push($scope.regInfoLogin);
+        //clear inputs
+        //switch view
+        $location.path('/reg_success');
+        
     }
+    function checkIfUsernameOrEmailExist (regInfo){
+        for (var i = 0, len = $scope.users.length; i < len; i++) {
+            if ($scope.users[i].name === regInfo.name)//true if input username match existing user name
+            {
+                //username already exist
+                $scope.usernameExist = true;
+                return true;
+            }
+            else if ($scope.users[i].email === regInfo.email)//true if input email match existing user name
+            {
+                $scope.emailExist = true;
+                return true;
+            }
+        }//case no match found: return false and continue registering
+        $scope.usernameExist, $scope.emailExist = false;
+        return false;
+    }
+    
 }
 
 /*factory declaration*/

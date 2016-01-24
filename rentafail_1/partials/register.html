@@ -8,12 +8,13 @@
 <h1>Register</h1>
 <div class="container_register">
     
-    <form id="form_register" name="registration" class="form_register" ng-submit="register()">
+    <form class="form_register" ng-submit="register()">
         <ul>
-            <li><input type="text" ng-model="regInfo.username" placeholder="username" id="username"/></li>
-            <li><input type="password" ng-model="regInfo.password" placeholder="password" id="password"/></li>
-            <li><input type="password" ng-model="regInfo.password_confirm" placeholder="password confirm" id="password_confirm"/></li>
-            <li><input type="email" ng-model="regInfo.email" placeholder="email" id="email"/></li>
+            <li><input type="text" ng-model="regInfo.name" placeholder="username" required/></li>
+            <div ng-show="usernameExist" class="errorMessage">Username already exist, try a different one</div>
+            <li><input type="text" ng-model="regInfoLogin.password" placeholder="password" id="password" required/></li>
+            <li><input type="email" ng-model="regInfo.email" placeholder="email" required/></li>
+            <div ng-show="emailExist" class="errorMessage">Email already exist, try a different one</div>
             <input type="submit" class="btn btn-primary" value="Register" />            
             <br />
         </ul>

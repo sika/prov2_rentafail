@@ -17,7 +17,7 @@ function fHeaderLogin() {
             //console.log($scope.users);
         },
         link: function (scope, element, attrs) {
-            scope.confirm = function () {
+            scope.confirm = function () {//checking for username and password match
                 for (var i = 0, len = scope.users.length; i < len; i++) {
                     if (scope.users[i].name === scope.username.name)//true if input username match existing user name
                     {

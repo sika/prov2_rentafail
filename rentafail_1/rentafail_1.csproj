@@ -108,6 +108,7 @@
     <Content Include="partials\home.html" />
     <Content Include="partials\register.css" />
     <Content Include="partials\register.html" />
+    <Content Include="partials\reg_success.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
