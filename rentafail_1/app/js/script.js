@@ -75,6 +75,7 @@ function fMainController($scope, mainFactory, $sce) { //mainFactory returns fact
         $scope.fail_success = true;
         return;
     }
+
     //$scope.profileInfo = {
     //    username: "",
     //    email: "",
