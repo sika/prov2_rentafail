@@ -7,8 +7,16 @@ angular.module('app.directives.mHeaderChooseType', [])
 
 	    //}
 		link: function (scope, element) {
-		    scope.bRent = function () {
-		        $('#bRent').css('background-color', '#5bb75b');
+		    scope.bRent = function () { //setting button color on click. Change to base on view
+		        
+		        console.log(window.location.href);
+
+		        $('#bRent').addClass('btn-success');
+		        $('#bFail').removeClass('btn-success');
+		    }
+		    scope.bFail = function () {
+		        $('#bFail').addClass('btn-success');
+		        $('#bRent').removeClass('btn-success');
 		    }
 		}
 	}

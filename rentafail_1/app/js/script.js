@@ -9,24 +9,24 @@ var myApp = angular.module('mMain', ['ngRoute', 'ui.router', 'app.directives.mHe
 myApp.config(fRouteProvider);
 /*router function*/
 function fRouteProvider($routeProvider) {
-	$routeProvider.when('/', {
-		controller : 'mainController',
-		templateUrl : 'partials/home.html'
-	}).when('/beafail', {
-		controller : 'mainController',
-		templateUrl : 'partials/be_a_fail.html'
-	}).when('/register', {
-	    controller: 'regController',
-	    templateUrl: 'partials/register.html'
-	}).when('/reg_success', {
-	    //controller: 'regController',
-	    templateUrl: 'partials/reg_success.html'
-	}).when('/user_info', {
-	    controller: 'mainController',
-	    templateUrl: 'partials/user_info.html'
-	}).otherwise({
-		redirectTo : '/'
-	});
+    $routeProvider.when('/', {
+        controller: 'mainController',
+        templateUrl: 'partials/home.html'
+    }).when('/beafail', {
+        controller: 'mainController',
+        templateUrl: 'partials/be_a_fail.html'
+    }).when('/register', {
+        controller: 'regController',
+        templateUrl: 'partials/register.html'
+    }).when('/reg_success', {
+        //controller: 'regController',
+        templateUrl: 'partials/reg_success.html'
+    }).when('/user_info', {
+        controller: 'mainController',
+        templateUrl: 'partials/user_info.html'
+    }).otherwise({
+        redirectTo: '/'
+    });
 }
 
 /*controller declaration*/
@@ -38,34 +38,48 @@ function fMainController($scope, mainFactory, $sce) { //mainFactory returns fact
     $scope.logins = mainFactory.getLogins(); //call  factory for customer objects;
     $scope.videos = mainFactory.getVideos(); //call  factory for customer objects;
     $scope.rents = mainFactory.getRents(); //call  factory for customer objects;	
-	$scope.trustSrc = function (src) {
-		return $sce.trustAsResourceUrl(src);
-	}
-	$scope.login = mainFactory.getLogin();
-    //$scope.aVideos = mainFactory.getAVideos();
-	//reg();
-    //function reg() {
-	$scope.profileInfo = {
-	    username: "",
-	    email: "",
-	    password: ""
-	};
-	getProfileInfo();
-    //}
-	//$scope.loginData = function () {
-	//    if ($scope.login[0].loggedin) {
-	//        return true;
-	//    }
-	//    else if (!$scope.login[0].loggedin) {
-	//        return false;
-	//    }
-	//}
-	function getProfileInfo() {
-	    if ($scope.login[0].loggedin) {
+    $scope.trustSrc = function (src) {
+        return $sce.trustAsResourceUrl(src);
+    }
+    $scope.login = mainFactory.getLogin();
 
-	    } else
-	        return;
-	}
+    $scope.newVideo = {
+        id_video: null,
+        name: null,
+        url: null,
+        ref_id_user: null
+    }
+    $scope.addVideo = function () {
+        var start = "http://www.youtube.com/embed/";
+        var id = $scope.newVideo.url.substring(34);
+        var end = "?autoplay=0&output=embed";
+        $scope.addVideo.url = start + id + end;
+        $scope.newVideo.ref_id_user = $scope.login[0].ref_id_user;
+        // increment video id
+        var id_video = $scope.videos[$scope.videos.length - 1].id_video + 1; //get value of id_user in last array item and increment by 1
+        $scope.newVideo.id_video = id_video;
+        //console.log($scope.newVideo);
+        $scope.videos.push($scope.newVideo);
+        
+        // get logged in user info to get user id
+        // set id_video, increment
+        // set name
+        //set url
+        //set ref_id_user
+        return;
+    }
+    //$scope.profileInfo = {
+    //    username: "",
+    //    email: "",
+    //    password: ""
+    //};
+    //getProfileInfo();
+    //function getProfileInfo() {
+    //    if ($scope.login[0].loggedin) {
+
+    //    } else
+    //        return;
+    //}
 
 }
 myApp.controller('regController', fRegController);
@@ -96,9 +110,9 @@ function fRegController($scope, $location, mainFactory) {
         //clear inputs
         //switch view
         $location.path('/reg_success');
-        
+
     }
-    function checkIfUsernameOrEmailExist (regInfo){
+    function checkIfUsernameOrEmailExist(regInfo) {
         for (var i = 0, len = $scope.users.length; i < len; i++) {
             if ($scope.users[i].name === regInfo.name)//true if input username match existing user name
             {
@@ -115,143 +129,143 @@ function fRegController($scope, $location, mainFactory) {
         $scope.usernameExist, $scope.emailExist = false;
         return false;
     }
-    
+
 }
 
 /*factory declaration*/
 myApp.factory('mainFactory', fMainFactory);
 /*Factory function*/
 function fMainFactory() {
-	/*empty object declaration*/
-	var factory = {};
-	var users = [{
-			id_user : 1,
-			name : "bob jew",
-			email : "bobjew@hotmail.com",
-			ref_id_password : 1,
-			ref_id_rent : null,
-			ref_id_video : null
-		}, {
-			id_user : 2,
-			name : "aaa",
-			email : "aaa@hotmail.com",
-			ref_id_password : 3,
-			ref_id_rent : null,
-			ref_id_video : null
-		}, {
-			id_user : 3,
-			name : "bbb",
-			email : "bbb@hotmail.com",
-			ref_id_password : 5,
-			ref_id_rent : null,
-			ref_id_video : null
-		}
-	];
+    /*empty object declaration*/
+    var factory = {};
+    var users = [{
+        id_user: 1,
+        name: "bob jew",
+        email: "bobjew@hotmail.com",
+        ref_id_password: 1,
+        ref_id_rent: null,
+        ref_id_video: null
+    }, {
+        id_user: 2,
+        name: "aaa",
+        email: "aaa@hotmail.com",
+        ref_id_password: 3,
+        ref_id_rent: null,
+        ref_id_video: null
+    }, {
+        id_user: 3,
+        name: "bbb",
+        email: "bbb@hotmail.com",
+        ref_id_password: 5,
+        ref_id_rent: null,
+        ref_id_video: null
+    }
+    ];
 
-	var logins = [{
-			ref_id_user : 1,
-			password : "bobjew"
-		}, {
-			ref_id_user : 2,
-			password : "aaa"
-		}
-	];
+    var logins = [{
+        ref_id_user: 1,
+        password: "bobjew"
+    }, {
+        ref_id_user: 2,
+        password: "aaa"
+    }
+    ];
 
-	var videos = [{
-			id_video : 1,
-			name : "Cheerleading Fail",
-			url : "http://www.youtube.com/embed/l-kxBjNML5c?autoplay=0",
-			ref_id_user : 1
-		}, {
-			id_video : 2,
-			name : "Bro night fail",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 3,
-			name : "Nathan A. Fuller",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 3
-		}, {
-			id_video : 4,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 5,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 6,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 7,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 8,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 9,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 10,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 11,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}, {
-			id_video : 12,
-			name : "Tana C. Emerson",
-			url : "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
-			ref_id_user : 2
-		}
-	];
+    var videos = [{
+        id_video: 1,
+        name: "Cheerleading Fail",
+        url: "http://www.youtube.com/embed/l-kxBjNML5c?autoplay=0",
+        ref_id_user: 1
+    }, {
+        id_video: 2,
+        name: "Bro night fail",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 3,
+        name: "Nathan A. Fuller",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 3
+    }, {
+        id_video: 4,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 5,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 6,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 7,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 8,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 9,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 10,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 11,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }, {
+        id_video: 12,
+        name: "Tana C. Emerson",
+        url: "http://www.youtube.com/embed/3lCm9Ii4L48?autoplay=0",
+        ref_id_user: 2
+    }
+    ];
 
-	var rents = [{
-			id_rent : 1,
-			datetime : "2016-01-08 18:30",
-			ref_id_user : 1
-		}, {
-			id_rent : 2,
-			datetime : "2016-01-05 15:00",
-			ref_id_user : 2
-		}
-	];
+    var rents = [{
+        id_rent: 1,
+        datetime: "2016-01-08 18:30",
+        ref_id_user: 1
+    }, {
+        id_rent: 2,
+        datetime: "2016-01-05 15:00",
+        ref_id_user: 2
+    }
+    ];
 
-	var login = [{
-	    loggedin: false,
-	    username: "",
-	    ref_id_user: 999
-	}];
+    var login = [{
+        loggedin: false,
+        username: "",
+        ref_id_user: 999
+    }];
 
-	factory.getUsers = function () {
-		return users;
-	};
-	factory.getVideos = function () {
-		return videos;
-	};
-	factory.getLogins = function () {
-		return logins;
-	};
-	factory.getRents = function () {
-		return rents;
-	};
-	factory.getLogin = function () {
-	    return login;
-	}
+    factory.getUsers = function () {
+        return users;
+    };
+    factory.getVideos = function () {
+        return videos;
+    };
+    factory.getLogins = function () {
+        return logins;
+    };
+    factory.getRents = function () {
+        return rents;
+    };
+    factory.getLogin = function () {
+        return login;
+    }
 
-	return factory;
+    return factory;
 }

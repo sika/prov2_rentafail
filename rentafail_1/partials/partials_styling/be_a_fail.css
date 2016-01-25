@@ -1,0 +1,19 @@
+﻿.container_be-a-fail{
+    position:relative;
+    width: 300px;
+    margin: 0 auto;
+    /*height: 200px;*/
+	text-align: center; 
+    /*z-index: 2;*/
+	/* box-sizing: border-box; */
+    /*outline: 1px solid black;*/
+}
+.be-a-fail{
+	position: relative;
+	width: 100%;
+    /*outline: 1px solid black;*/
+}
+.be-a-fail input, button {
+	width: 100%;
+	padding: 0;
+}

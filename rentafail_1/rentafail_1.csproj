@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\directives\header-anchor\header-anchor.css" />
+    <Content Include="app\directives\header-anchor\header-anchor.html" />
     <Content Include="app\directives\header-anchor\header-anchor.js" />
     <Content Include="app\directives\header-choose-type\header-choose-type.css" />
     <Content Include="app\directives\header-choose-type\header-choose-type.html" />
@@ -103,7 +104,7 @@
     <Content Include="app\js\angular.js" />
     <Content Include="app\js\script.js" />
     <Content Include="partials\be_a_fail.html" />
-    <Content Include="app\directives\header-anchor\header-anchor.html" />
+    <Content Include="partials\partials_styling\be_a_fail.css" />
     <Content Include="partials\partials_styling\home.css" />
     <Content Include="partials\home.html" />
     <Content Include="partials\partials_styling\register.css" />

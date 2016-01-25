@@ -13,10 +13,6 @@
 	padding: 0;
 	border-radius: 40px;
 }
-.cs-btn{
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    border: 1px solid black;
-
+.button{
+    outline: none !important;
 }
