@@ -43,6 +43,7 @@ function fMainController($scope, mainFactory, $sce) { //mainFactory returns fact
     }
     $scope.login = mainFactory.getLogin();
 
+    $scope.fail_success = false;
     $scope.newVideo = {
         id_video: null,
         name: null,
@@ -51,21 +52,27 @@ function fMainController($scope, mainFactory, $sce) { //mainFactory returns fact
     }
     $scope.addVideo = function () {
         var start = "http://www.youtube.com/embed/";
-        var id = $scope.newVideo.url.substring(34);
-        var end = "?autoplay=0&output=embed";
-        $scope.addVideo.url = start + id + end;
+        var id = $scope.newVideo.url.substring(32);
+        var end = "?autoplay=0";
+        $scope.newVideo.url = start + id + end;
         $scope.newVideo.ref_id_user = $scope.login[0].ref_id_user;
         // increment video id
         var id_video = $scope.videos[$scope.videos.length - 1].id_video + 1; //get value of id_user in last array item and increment by 1
         $scope.newVideo.id_video = id_video;
-        //console.log($scope.newVideo);
+        console.log($scope.newVideo);
+        console.log($scope.videos);
         $scope.videos.push($scope.newVideo);
-        
-        // get logged in user info to get user id
-        // set id_video, increment
-        // set name
-        //set url
-        //set ref_id_user
+
+        $scope.newVideo = {
+            id_video: null,
+            name: null,
+            url: null,
+            ref_id_user: null
+        }
+        //clear inputs
+        //$('#videoName').val('');
+        //$('#videoUrl').val('');
+        $scope.fail_success = true;
         return;
     }
     //$scope.profileInfo = {

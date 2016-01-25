@@ -2,17 +2,17 @@
 <div class="container_be-a-fail">
     <div class="be-a-fail" data-ng-if="login[0].loggedin">
         <form ng-submit="addVideo()">
-            <input type="text" ng-model="newVideo.name" placeholder="video name" />
-            <input type="text" ng-model="newVideo.url" placeholder="url (youtube link, format: https://www.youtube.com/watch?v=JbF5d9u0U7o)" />
+            <input type="text" ng-model="newVideo.name" placeholder="video name" id="videoName"/>
+            <input type="text" ng-model="newVideo.url" placeholder="url (youtube link, format: https://www.youtube.com/watch?v=JbF5d9u0U7o)" id="videoUrl"/>
             <br />
             <input type="submit" class="btn btn-primary" value="Add video" />
-        </form>
+        </form><br />
+        <div ng-show="fail_success">Video added</div>
 
         <!--<input type="text" ng-model="username.name"></input>
         <input type="button" ng-click="btn()"></input>-->
     </div>
     <div data-ng-if="!login[0].loggedin" class="loggedInMessage">
         <p>Please login or register</p>
-        {{}}
     </div>
 </div>
