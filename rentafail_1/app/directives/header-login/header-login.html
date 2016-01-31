@@ -1,6 +1,6 @@
 ﻿<div class="container_header-login">
-    <div >
-        <!--data-ng-if="!login[0].loggedin"-->
+    <div data-ng-if="!login[0].loggedin">
+       
         <form ng-submit="confirm()">
             <input type="text" ng-model="username.name" placeholder="username" />
             <input type="password" ng-model="password.pass" placeholder="password" />
